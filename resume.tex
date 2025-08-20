@@ -7,70 +7,96 @@
 \begin{document}
 \pagenumbering{gobble} % suppress displaying page number
 
-\name{Bin Yuan}
+\name{Zhiyu Ding}
 
 \basicInfo{
-  \email{yuanbin2014@gmail.com} \textperiodcentered\ 
-  \phone{(+86) 131-221-87xxx} \textperiodcentered\ 
-  \linkedin[billryan8]{https://www.linkedin.com/in/billryan8}}
+  \email{dingzhiyu2004@163.com} \textperiodcentered\ 
+  \phone{(+86) 18765788600} \textperiodcentered\ 
+  \homepage[nevergpdzy.cn]{https://nevergpdzy.cn}}
 
-\section{\faGraduationCap\ Education}
-\datedsubsection{\textbf{Shanghai Jiao Tong University (SJTU)}, Shanghai, China}{2013 -- Present}
-\textit{Master student} in Electronics Engineering (EE), expected March 2016
-\datedsubsection{\textbf{Xidian University}, Shaanxi, China}{2009 -- 2013}
-\textit{B.S.} in Electronics Engineering (EE)
-
-\section{\faUsers\ Experience}
-\datedsubsection{\textbf{FLAG Inc.} California, America}{2012 -- Present}
-\role{Summer Intern}{Manager: xxx}
-Brief introduction: xxx.
+\section{Education}
+\datedsubsection{\textbf{Southwest Petroleum University}, Chengdu, Sichuan}{September 2023 -- Present}
+\textit{Undergraduate Student} in Data Science and Big Data Technology, School of Computer and Software Engineering
 \begin{itemize}
-  \item Implemented xxx feature
-  \item Optimized xxx 5\%
-  \item xxx
+  \item \textbf{Academic Performance}: GPA: 4.1/5.0, Major Ranking: 1/65
+  \item \textbf{Core Courses}: Big Data Platform Technology and Applications(98), Python(96), Object-Oriented Programming(95), Statistics Principles(93), Introduction to Artificial Intelligence(92), Linear Algebra(91), Data Structures and Algorithms(90)
 \end{itemize}
 
-\datedsubsection{\textbf{xxx Projects}}{Jan. 2015 -- Present}
-\role{C, Python, Django, Linux}{Individual Projects, collaborated with xxx}
-Brief introduction: xxx
+\section{Project Experience}
+\subsection{\textbf{Parallel Computing Optimization for Oil Spill Prediction Model}}
+\textit{July 2024 -- August 2024}
+\role{2024 Marine Computing Challenge Finals}{Team Leader - Team: Dream Brook}
+This project was selected from the 2024 Marine Computing Challenge finals. Using a self-developed two-dimensional oil spill prediction model, the program was accelerated using parallel computing techniques while ensuring understanding of the Euler method for solving trajectory equations and the correctness of vector-based methods for determining whether oil particles will be adsorbed to the shore.
 \begin{itemize}
-  \item Implemented xxx feature
-  \item Optimized xxx 5\%
-  \item xxx
+  \item Implemented hybrid MPI and OpenMP parallelization on the original serial program, utilizing load balancing techniques to fully leverage 2-node 128-core computing resources
+  \item Applied memory access optimization using Fortran/C to rearrange data access order, utilizing memory locality to improve cache hit rates
+  \item Achieved approximately 2482.14x speedup compared to baseline, ranking fifth among final teams and winning national third prize
 \end{itemize}
 
-\datedsubsection{\textbf{\LaTeX\ résumé template}}{May. 2015 -- Present}
-\role{\LaTeX, Maintainer}{Individual Projects}
-An elegant \LaTeX\ résumé template, https://github.com/billryan/resume
+\subsection{\textbf{AlphaFold3-based Protein Structure Prediction Inference Optimization}}
+\textit{January 2025 -- February 2025}
+\role{ASC25 Student Supercomputer Challenge}{Team Member}
+Selected from the ASC25 Student Supercomputer Challenge, this project involves inference performance optimization for the AlphaFold3 protein structure prediction model developed by Google DeepMind. The project requires minimizing inference time on both GPU and CPU platforms while maintaining prediction accuracy.
 \begin{itemize}
-  \item Easy to be further customized or extended
-  \item Full support for unicode characters (e.g. CJK) with \XeLaTeX\
-  \item FontAwesome 4.5.0 support
+  \item Completed AlphaFold3 environment deployment on NVIDIA A100 GPU and Intel Xeon CPU hybrid architecture
+  \item Identified inference bottlenecks through cProfiler performance analysis, implemented GPU optimization strategies and resolved CPU numerical computation precision issues
+  \item Achieved 1.2-2.4x performance improvement on GPU and 1.1-5.3x speedup on CPU across different sequence lengths
 \end{itemize}
 
-% Reference Test
-%\datedsubsection{\textbf{Paper Title\cite{zaharia2012resilient}}}{May. 2015}
-%An xxx optimized for xxx\cite{verma2015large}
-%\begin{itemize}
-%  \item main contribution
-%\end{itemize}
+\subsection{\textbf{NAMD-based Molecular Dynamics Simulation Performance Optimization}}
+\textit{May 2024 -- November 2024}
+\role{IndySCC@SC24 International Student Cluster Competition}{Team Member}
+Selected from IndySCC@SC24 International Student Cluster Competition, this project focuses on large-scale molecular dynamics simulation optimization for biomolecular systems covering water molecule physical property analysis, protein folding dynamics, and thermodynamic integration free energy calculations.
+\begin{itemize}
+  \item Completed NAMD environment deployment and GPU acceleration configuration on Jetstream2 cloud platform
+  \item Implemented various molecular dynamics simulation algorithms including eABF, replica exchange molecular dynamics, and thermodynamic integration
+  \item Reached approximately 15 nanoseconds/day simulation performance on A100 GPU
+\end{itemize}
 
-\section{\faCogs\ Skills}
+\subsection{\textbf{MLPerf Inference-based BERT Model Inference Performance Optimization}}
+\textit{May 2024 -- November 2024}
+\role{IndySCC24 MLPerf Inference Benchmark Challenge}{Team Member}
+This project focuses on inference performance optimization for BERT-99 large language model on question-answering tasks using MLCommons CM automation framework for benchmark configuration and result submission.
+\begin{itemize}
+  \item Deployed MLPerf environment on AMD EPYC 7713 CPU and NVIDIA A100 GPU hybrid architecture
+  \item Designed and implemented batch processing inference optimization strategies including multi-input sample batch collection and GPU parallel inference acceleration
+  \item Achieved GPU inference throughput of 85.447 samples/second, a 26.8x improvement compared to CPU, improving GPU utilization from 54\% to 97\%
+\end{itemize}
+
+\subsection{\textbf{PCG Algorithm Optimization on New Generation Sunway Supercomputer}}
+\textit{February 2024 -- April 2024}
+\role{7th Domestic CPU Parallel Application Challenge}{Individual Project}
+Selected from the 7th Domestic CPU Parallel Application Challenge preliminary competition, this project focuses on many-core optimization of the Preconditioned Conjugate Gradient (PCG) algorithm.
+\begin{itemize}
+  \item Adopted approximately balanced row partitioning strategy and LDM space memory access adjustment methods for SpMV algorithm optimization
+  \item Analyzed workflow and utilized master core to hide partial computations, fully utilizing LDM space
+  \item Passed correctness verification and achieved an average 30x speedup
+\end{itemize}
+
+\section{Technical Skills}
 \begin{itemize}[parsep=0.5ex]
-  \item Programming Languages: C == Python > C++ > Java
-  \item Platform: Linux
-  \item Development: Web, xxx
+  \item Programming Languages: C/C++, Fortran, Python
+  \item Parallel Computing: CUDA, HIP, OpenMP, MPI
+  \item Hardware Platforms: CPU/GPU Architecture, Sunway Supercomputer
+  \item Operator Optimization: CUDA optimization operators (matrix multiplication, convolution, etc.)
 \end{itemize}
 
-\section{\faHeartO\ Honors and Awards}
-\datedline{\textit{\nth{1} Prize}, Award on xxx }{Jun. 2013}
-\datedline{Other awards}{2015}
+\section{Awards and Honors}
+\datedline{\textit{International Second Prize}, ASC2025 Student Supercomputer Challenge}{June 2025}
+\datedline{\textit{Invited Participant}, SC24 International Supercomputing Competition Online Track IndySCC}{November 2024}
+\datedline{\textit{National Third Prize}, 2024 Marine Computing Challenge Finals}{August 2024}
+\datedline{\textit{National Third Prize}, Tecorigin Operator Development Challenge Finals}{December 2024}
+\datedline{\textit{Provincial Second Place}, Tianyi Cloud Xirang Cup College AI Competition Sichuan}{July 2025}
+\datedline{\textit{National Third Prize}, 15th Blue Bridge Cup National Finals}{June 2024}
+\datedline{\textit{Invited Participant}, 2024 Tencent Kaiwu AI Global Open Invitational}{December 2024}
+\datedline{\textit{Outstanding Student Scholarships}, Southwest Petroleum University}{2024}
 
-\section{\faInfo\ Miscellaneous}
+\section{Additional Information}
 \begin{itemize}[parsep=0.5ex]
-  \item Blog: http://your.blog.me
-  \item GitHub: https://github.com/username
-  \item Languages: English - Fluent, Mandarin - Native speaker
+  \item Blog: https://nevergpdzy.cn
+  \item GitHub: https://github.com/NeverGpDzy
+  \item Languages: English CET-6 (478), English CET-4 (521), Mandarin - Native speaker
+  \item Research Interests: High Performance Computing and Parallel Programming, GPU/CPU heterogeneous computing optimization
 \end{itemize}
 
 %% Reference
