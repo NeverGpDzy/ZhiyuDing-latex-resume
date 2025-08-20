@@ -13,76 +13,89 @@
 \begin{document}
 \pagenumbering{gobble} % suppress displaying page number
 
-\name{你的大名}
+\name{丁致宇}
 
 \basicInfo{
-  \email{yuanbin2014@gmail.com} \textperiodcentered\ 
-  \phone{(+86) 131-221-87xxx} \textperiodcentered\ 
-  \linkedin[billryan8]{https://www.linkedin.com/in/billryan8}}
+  \email{dingzhiyu2004@163.com} \textperiodcentered\ 
+  \phone{(+86) 18765788600} \textperiodcentered\ 
+  \github[NeverGpDzy]{https://github.com/NeverGpDzy} \textperiodcentered\
+  \homepage[nevergpdzy.cn]{https://nevergpdzy.cn}}
  
-\section{\faGraduationCap\  教育背景}
-\datedsubsection{\textbf{上海交通大学}, 上海}{2013 -- 至今}
-\textit{在读硕士研究生}\ 信息与通信工程, 预计 2016 年 3 月毕业
-\datedsubsection{\textbf{西安电子科技大学}, 西安, 陕西}{2009 -- 2013}
-\textit{学士}\ 通信工程
-
-\section{\faUsers\ 实习/项目经历}
-\datedsubsection{\textbf{黑科技公司} 上海}{2015年3月 -- 2015年5月}
-\role{实习}{经理: 高富帅}
-xxx后端开发
+\section{教育背景}
+\datedsubsection{\textbf{西南石油大学（双一流）}, 四川成都}{2023年9月 -- 至今}
+\textit{在读本科生}\ 计算机与软件学院 数据科学与大数据技术专业
 \begin{itemize}
-  \item 实现了 xxx 特性
-  \item 后台资源占用率减少8\%
-  \item xxx
+  \item \textbf{学业成绩}: GPA: 4.1/5.0，专业排名: 1/65
+  \item \textbf{核心课程}: 大数据平台技术及应用(98)，Python(96)，面向对象程序设计(95)，统计学原理(93)，人工智能导论(92)，线性代数(91)，数据结构及算法(90)
 \end{itemize}
 
-\datedsubsection{\textbf{分布式科学上网姿势}}{2014年6月 -- 至今}
-\role{Golang, Linux}{个人项目，和富帅糕合作开发}
-\begin{onehalfspacing}
-分布式负载均衡科学上网姿势, https://github.com/cyfdecyf/cow
+\section{项目经历}
+\datedsubsection{\textbf{基于溢油预测模型的并行计算优化}}{2024年7月 -- 2024年8月}
+\role{2024海洋计算挑战赛决赛题目}{队长 - 参赛队：梦溪湖}
+该项目选自2024海洋计算挑战赛决赛题目。采用自主研发的二维溢油预测模型，在保证对欧拉方法求解轨迹方程的理解以及基于向量法判断油粒子是否会吸附到岸上的正确性的情况下，利用并行计算技术对程序进行加速
 \begin{itemize}
-  \item 修复了连接未正常关闭导致文件描述符耗尽的 bug
-  \item 使用Chord 哈希 URL, 实现稳定可靠地分流
-  \item xxx (尽量使用量化的客观结果)
+  \item 承担工作：通过在原有串行程序上进行MPI与OpenMP混合并行化，并采用负载均衡技术，充分利用2节点128核计算资源，使算法执行效率得到提升。访存优化方面我们使用Fortran/C重新排列数据访问顺序，利用内存局部性提高缓存命中率。在通信优化方面我利用了非阻塞通信、打包数据通信等方式进行优化。我们还在在算法层面使用快速排除未交叉线段和二分查找等优化技术，快速确定油粒子轨迹与海岸线的关系
+  \item 项目成果：通过组委会提供算例的正确性检验，在初始算例上，相较于Baseline，取得了大约2482.14倍的加速比，在决赛队伍中排位第五，获得全国三等奖。
 \end{itemize}
-\end{onehalfspacing}
 
-\datedsubsection{\textbf{\LaTeX\ 简历模板}}{2015 年5月 -- 至今}
-\role{\LaTeX, Python}{个人项目}
-\begin{onehalfspacing}
-优雅的 \LaTeX\ 简历模板, https://github.com/billryan/resume
+\datedsubsection{\textbf{基于AlphaFold3的蛋白质结构预测推理优化项目}}{2025年1月 -- 2025年2月}
+\role{ASC25世界大学生超级计算机竞赛}{团队成员}
+选自ASC25世界大学生超级计算机竞赛，针对Google DeepMind开发的AlphaFold3蛋白质结构预测模型进行推理性能优化。项目要求在保持预测精度的前提下，分别在GPU和CPU平台上最小化推理时间，处理12个不同长度的蛋白质序列样本，涉及复杂的扩散模型架构和JAX深度学习框架优化
 \begin{itemize}
-  \item 容易定制和扩展
-  \item 完善的 Unicode 字体支持，使用 \XeLaTeX\ 编译
-  \item 支持 FontAwesome 4.5.0
+  \item 承担工作：在NVIDIA A100 GPU和Intel Xeon CPU混合架构上完成AlphaFold3环境部署，通过cProfiler性能分析工具识别推理瓶颈，发现JAX框架的JIT编译占用大量时间。针对GPU优化实施禁用Triton GEMM编译、优化编译桶参数等策略；针对CPU优化解决diffusion\_head.py模块中数值计算精度问题，修复负数开方导致的NaN错误，采用epsilon数值稳定性技术确保计算准确性。
+  \item 项目成果：成功实现AlphaFold3推理显著加速，GPU优化在不同序列长度下达到1.2-2.4倍的性能提升，CPU优化实现1.1-5.3倍的加速比，特别是在短序列上效果显著。通过系统性的编译优化和算法调优，在保证蛋白质结构预测confidence值与基准代码一致的情况下，为生物信息学和药物设计领域的AlphaFold3应用提供了高效的推理解决方案
 \end{itemize}
-\end{onehalfspacing}
 
-% Reference Test
-%\datedsubsection{\textbf{Paper Title\cite{zaharia2012resilient}}}{May. 2015}
-%An xxx optimized for xxx\cite{verma2015large}
-%\begin{itemize}
-%  \item main contribution
-%\end{itemize}
+\datedsubsection{\textbf{基于NAMD的分子动力学模拟性能优化挑战}}{2024年5月 -- 2024年11月}
+\role{IndySCC@SC24国际超算学生集群竞赛}{团队成员}
+选自IndySCC@SC24国际超算学生集群竞赛，针对生物分子系统进行大规模分子动力学模拟优化。项目涵盖水分子物理性质分析、蛋白质折叠动力学、热力学积分自由能计算等多个层次的生物计算挑战，需要在有限48h下实现从10万到2000万原子规模系统的高效模拟
+\begin{itemize}
+  \item 承担工作：在Jetstream2云平台上完成NAMD环境部署与GPU加速配置，实现多种分子动力学模拟算法包括扩展系统自适应偏置力方法(eABF)、副本交换分子动力学、热力学积分等高级采样技术，通过氢质量重分配技术将时间步长从2fs优化至4fs，采用GPU并行计算策略处理多副本同时运行的复杂任务调度。
+  \item 项目成果：成功完成水分子热容和扩散系数的精确计算，实现deca-alanine蛋白质α-螺旋折叠自由能曲线的收敛计算，在A100 GPU上达到约15纳秒/天的模拟性能，通过算法优化在保证计算精度的前提下显著提升了大规模生物分子系统的计算效率。
+\end{itemize}
 
-\section{\faCogs\ IT 技能}
+\datedsubsection{\textbf{基于MLPerf Inference的BERT模型推理性能优化}}{2024年5月 -- 2024年11月}
+\role{IndySCC24国际超算竞赛MLPerf Inference基准测试挑战}{团队成员}
+选自IndySCC24国际超算竞赛MLPerf Inference基准测试挑战，针对BERT-99大语言模型在问答任务(Squad v1.1数据集)上进行推理性能优化。项目要求在CPU和GPU异构平台上实现高效推理，使用MLCommons CM自动化框架进行基准测试配置和结果提交，涉及深度学习推理优化、并行计算和性能调优等核心技术
+\begin{itemize}
+  \item 承担工作：在AMD EPYC 7713 CPU和NVIDIA A100 GPU混合架构上部署MLPerf环境，克服权限配置和文件打包等技术难题。设计并实现批处理推理优化策略，包括多输入样本批量收集、数据预处理pipeline重构、GPU并行推理加速和结果后处理优化。通过深入分析推理瓶颈，重构issue\_queries方法实现批量数据准备，优化process\_batch方法提升GPU利用率，实现端到端的推理性能优化。
+  \item 项目成果：成功实现BERT推理性能显著提升，GPU推理吞吐量达到85.447样本/秒，相比CPU的3.193样本/秒提升26.8倍。通过批处理优化技术将GPU利用率从基准测试的54\%提升至97\%，在保持90.876\%准确率的同时大幅降低推理延迟。项目成果成功提交至GitHub并通过MLCommons官方验证。
+\end{itemize}
+
+\datedsubsection{\textbf{基于新一代神威超算的PCG算法优化}}{2024年2月 -- 2024年4月}
+\role{第七届国产CPU并行应用挑战赛初赛题目}{个人项目}
+选自第七届国产CPU并行应用挑战赛初赛题目，对预处理共轭梯度算法PCG进行众核优化
+\begin{itemize}
+  \item 承担工作: 针对核心热点SpMV算法，采用了近似均衡的行划分策略、LDM空间访存调整等方法进行优化；分析流程，利用主核隐藏部分计算，充分利用LDM空间。
+  \item 项目成果: 通过正确性检验，达到平均30倍的加速比
+\end{itemize}
+
+\section{IT 技能}
 % increase linespacing [parsep=0.5ex]
 \begin{itemize}[parsep=0.5ex]
-  \item 编程语言: C == Python > C++ > Java
-  \item 平台: Linux
-  \item 开发: xxx
+  \item \textbf{编程语言}: C/C++, Fortran, Python
+  \item \textbf{并行计算}: CUDA, HIP, OpenMP, MPI
+  \item \textbf{硬件平台}: 熟悉CPU/GPU架构, Sunway（神威超算）
+  \item \textbf{算子优化}: 熟悉CUDA优化算子（矩阵乘、卷积等）
 \end{itemize}
 
-\section{\faHeartO\ 获奖情况}
-\datedline{\textit{第一名}, xxx 比赛}{2013 年6 月}
-\datedline{其他奖项}{2015}
+\section{获奖情况}
+\datedline{\textit{国际二等奖}, ASC2025世界大学生超级计算机竞赛}{2025年6月}
+\datedline{\textit{受邀参赛}, SC24国际超算竞赛线上赛道IndySCC}{2024年11月}
+\datedline{\textit{全国三等奖}, 2024年海洋计算挑战赛总决赛}{2024年8月}
+\datedline{\textit{全国三等奖}, Tecorigin算子开发任务挑战赛总决赛}{2024年12月}
+\datedline{\textit{省级第二名}, 天翼云息壤杯高校AI大赛四川省赛}{2025年7月}
+\datedline{\textit{全国三等奖}, 第十五届蓝桥杯总决赛}{2024年6月}
+\datedline{\textit{受邀参赛}, 2024腾讯开悟人工智能全球公开赛邀请赛}{2024年12月}
+\datedline{\textit{一等奖学金、二等奖学金}, 西南石油大学优秀学生奖学金}{2024年}
 
-\section{\faInfo\ 其他}
+\section{其他}
 % increase linespacing [parsep=0.5ex]
 \begin{itemize}[parsep=0.5ex]
-  \item 技术博客: http://blog.yours.me
-  \item GitHub: https://github.com/username
-  \item 语言: 英语 - 熟练(TOEFL xxx)
+  \item \textbf{个人博客}: https://nevergpdzy.cn
+  \item \textbf{GitHub}: https://github.com/NeverGpDzy
+  \item \textbf{语言能力}: 英语六级(CET6: 478)，英语四级(CET4: 521)，普通话二级甲等
+  \item \textbf{研究方向}: 高性能计算与并行编程，致力于GPU/CPU异构计算优化
 \end{itemize}
 
 %% Reference
