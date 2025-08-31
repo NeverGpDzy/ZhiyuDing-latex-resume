@@ -1,5 +1,5 @@
 # 指定主要的简历文件，而不是所有 .tex 文件
-MAIN_FILES = resume.tex resume-zh_CN.tex resume_photo.tex
+MAIN_FILES = resume.tex resume-zh_CN.tex resume_photo.tex resume-zh_Slim.tex
 PDFS = $(MAIN_FILES:.tex=.pdf)
 
 # 默认编译中文简历
@@ -12,6 +12,10 @@ en: clean
 # 编译中文简历  
 zh_CN: clean
 	xelatex resume-zh_CN.tex
+
+# 编译精简版中文简历
+zh_slim: clean
+	xelatex resume-zh_Slim.tex
 
 # 编译带照片的简历
 photo: clean
@@ -53,6 +57,7 @@ help:
 	@echo "可用的编译选项："
 	@echo "  make         - 编译中文简历 (默认)"
 	@echo "  make zh_CN   - 编译中文简历"
+	@echo "  make zh_slim - 编译精简版中文简历"
 	@echo "  make en      - 编译英文简历"
 	@echo "  make photo   - 编译带照片的简历"
 	@echo "  make pdf     - 编译所有主要简历"
@@ -61,4 +66,4 @@ help:
 	@echo "  make distclean - 清理所有生成文件"
 	@echo "  make help    - 显示此帮助信息"
 
-.PHONY: all en zh_CN photo pdf full clean distclean help
+.PHONY: all en zh_CN zh_slim photo pdf full clean distclean help
