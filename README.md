@@ -73,7 +73,7 @@ Examples from the repository root:
 
 Behavior:
 
-- The script can switch between `master` and `zh_CN` for you.
+- If the current branch does not match `-Branch`, the script switches to the target branch before building.
 - It removes LaTeX temporary files before branch switching and after successful builds.
 - It keeps the generated PDF files and removes temporary files unless `-KeepTemp` is passed.
 
@@ -81,6 +81,25 @@ Target mapping:
 
 - `master`: `en`, `photo`
 - `zh_CN`: `en`, `photo`, `zh`, `zh-slim`
+
+## Linux Build With make
+
+On Linux and other Unix-like environments, you can continue using the repository `Makefile`.
+
+Common commands on `master`:
+
+```bash
+make en
+make photo
+make pdf
+make clean
+make clean-all
+```
+
+Notes:
+
+- `master` is intended for English builds, so the practical targets are `en`, `photo`, and `pdf`.
+- If you need Chinese builds on Linux, switch to the `zh_CN` branch and use its additional targets there.
 
 ## License
 
