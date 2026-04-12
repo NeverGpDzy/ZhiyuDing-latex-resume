@@ -56,7 +56,7 @@ xelatex resume-zh_Slim.tex
 
 脚本行为:
 
-- 可以在 `master` 和 `zh_CN` 之间自动切换
+- 如果当前分支与 `-Branch` 指定的分支不同，脚本会先自动切换到目标分支再编译
 - 切换分支前会先清理 LaTeX 临时文件
 - 默认只保留生成出的 PDF，传入 `-KeepTemp` 时保留中间文件
 
@@ -64,6 +64,28 @@ xelatex resume-zh_Slim.tex
 
 - `master`: `en`, `photo`
 - `zh_CN`: `en`, `photo`, `zh`, `zh-slim`
+
+## Linux 下使用 make
+
+Linux 和其他类 Unix 环境可以继续使用仓库自带的 `Makefile`。
+
+常用命令:
+
+```bash
+make en
+make photo
+make zh_CN
+make zh_slim
+make pdf
+make clean
+make distclean
+```
+
+说明:
+
+- `master` 分支主要使用 `make en` 和 `make photo`
+- `zh_CN` 分支支持 `make zh_CN`、`make zh_slim`、`make en`、`make photo`、`make pdf`
+- 如果启用了参考文献，还可以在 `zh_CN` 分支使用 `make full`
 
 ## 中文字体说明
 
