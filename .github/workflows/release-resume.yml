@@ -1,0 +1,84 @@
+name: Release Resume PDF
+
+on:
+  push:
+    branches:
+      - master
+      - zh_CN
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install LaTeX dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y latexmk texlive-xetex texlive-latex-extra texlive-fonts-extra texlive-lang-chinese
+
+      - name: Resolve branch-specific metadata
+        id: meta
+        run: |
+          case "${GITHUB_REF_NAME}" in
+            master)
+              echo "tex_file=resume.tex" >> "$GITHUB_OUTPUT"
+              echo "pdf_file=resume.pdf" >> "$GITHUB_OUTPUT"
+              echo "asset_name=resume-master.pdf" >> "$GITHUB_OUTPUT"
+              echo "release_tag=auto-master" >> "$GITHUB_OUTPUT"
+              echo "release_title=Auto Build (master)" >> "$GITHUB_OUTPUT"
+              ;;
+            zh_CN)
+              echo "tex_file=resume-zh_CN.tex" >> "$GITHUB_OUTPUT"
+              echo "pdf_file=resume-zh_CN.pdf" >> "$GITHUB_OUTPUT"
+              echo "asset_name=resume-zh_CN.pdf" >> "$GITHUB_OUTPUT"
+              echo "release_tag=auto-zh-cn" >> "$GITHUB_OUTPUT"
+              echo "release_title=Auto Build (zh_CN)" >> "$GITHUB_OUTPUT"
+              ;;
+            *)
+              echo "Unsupported branch: ${GITHUB_REF_NAME}" >&2
+              exit 1
+              ;;
+          esac
+
+      - name: Compile PDF
+        run: |
+          latexmk -xelatex -interaction=nonstopmode -halt-on-error -file-line-error "${{ steps.meta.outputs.tex_file }}"
+          cp "${{ steps.meta.outputs.pdf_file }}" "${{ steps.meta.outputs.asset_name }}"
+
+      - name: Publish rolling release
+        run: |
+          tag="${{ steps.meta.outputs.release_tag }}"
+          title="${{ steps.meta.outputs.release_title }}"
+          asset="${{ steps.meta.outputs.asset_name }}"
+          notes_file="$(mktemp)"
+
+          {
+            echo "Automated resume build."
+            echo
+            echo "- Branch: ${GITHUB_REF_NAME}"
+            echo "- Commit: ${GITHUB_SHA}"
+            echo "- Triggered at: $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          } > "${notes_file}"
+
+          if gh release view "${tag}" >/dev/null 2>&1; then
+            gh release delete "${tag}" --cleanup-tag -y
+          fi
+
+          gh release create "${tag}" "${asset}" \
+            --target "${GITHUB_SHA}" \
+            --title "${title}" \
+            --notes-file "${notes_file}" \
+            --prerelease \
+            --latest=false
