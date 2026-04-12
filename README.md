@@ -46,6 +46,42 @@ If you only need a résumé in English or have installed Adobe Simplified Chines
 git clone https://github.com/billryan/resume.git --branch master --depth 1 --single-branch <folder>
 ```
 
+## Branches
+
+- `master`: English resume sources only. Use `resume.tex` or `resume_photo.tex`.
+- `zh_CN`: Superset branch with bundled Chinese fonts and additional sources `resume-zh_CN.tex` and `resume-zh_Slim.tex`.
+
+## Windows Local Build
+
+This repository now includes a Windows PowerShell build entrypoint at `scripts/build-resume.ps1`.
+
+Requirements:
+
+- Git
+- PowerShell 5.1 or newer
+- TeX Live (or another XeLaTeX distribution) with both `xelatex` and `latexmk` on `PATH`
+
+Examples from the repository root:
+
+```powershell
+.\scripts\build-resume.ps1 -Branch master -Target en
+.\scripts\build-resume.ps1 -Branch master -Target photo
+.\scripts\build-resume.ps1 -Branch zh_CN -Target zh
+.\scripts\build-resume.ps1 -Branch zh_CN -Target zh-slim
+.\scripts\build-resume.ps1 -Branch zh_CN -Target all
+```
+
+Behavior:
+
+- The script can switch between `master` and `zh_CN` for you.
+- It removes LaTeX temporary files before branch switching and after successful builds.
+- It keeps the generated PDF files and removes temporary files unless `-KeepTemp` is passed.
+
+Target mapping:
+
+- `master`: `en`, `photo`
+- `zh_CN`: `en`, `photo`, `zh`, `zh-slim`
+
 ## License
 
 [The MIT License (MIT)](http://opensource.org/licenses/MIT)
