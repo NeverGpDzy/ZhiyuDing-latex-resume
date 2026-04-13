@@ -55,7 +55,11 @@ jobs:
       - name: Compile PDF
         run: |
           latexmk -xelatex -interaction=nonstopmode -halt-on-error -file-line-error "${{ steps.meta.outputs.tex_file }}"
-          cp "${{ steps.meta.outputs.pdf_file }}" "${{ steps.meta.outputs.asset_name }}"
+          if [ "${{ steps.meta.outputs.pdf_file }}" != "${{ steps.meta.outputs.asset_name }}" ]; then
+            cp "${{ steps.meta.outputs.pdf_file }}" "${{ steps.meta.outputs.asset_name }}"
+          else
+            echo "Skipping asset copy because output file already matches asset name: ${{ steps.meta.outputs.pdf_file }}"
+          fi
 
       - name: Publish rolling release
         run: |
