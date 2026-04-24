@@ -17,69 +17,48 @@
 
 \basicInfo{
   \email{dingzhiyu2004@163.com} \textperiodcentered\ 
-  \phone{(+86) 18765788600} \textperiodcentered\ 
-  \homepage[nevergpdzy.github.io]{https://nevergpdzy.github.io} \textperiodcentered\
+  \phone{18765788600} \textperiodcentered\ 
+  \homepage[nevergpdzy.cn]{https://nevergpdzy.cn} \textperiodcentered\
   \textbf{}山东潍坊}
 
 \section{教育背景}
 \datedsubsection{\textbf{西南石油大学（双一流）}, 四川成都}{2023年9月 -- 至今}
-\textit{在读本科生}\ 计算机与软件学院 数据科学与大数据技术专业
+\textit{在读本科生}\ 数据科学与大数据技术专业
 \begin{itemize}
-  \item \textbf{学业成绩}: GPA: 4.1/5.0，专业排名: 1/65
+  \item \textbf{学业成绩}: GPA: 4.13/5.0，专业排名: 1/66
   \item \textbf{核心课程}: 大数据平台技术及应用(98)，Python(96)，面向对象程序设计(95)，统计学原理(93)，人工智能导论(92)，线性代数(91)，数据结构及算法(90)
 \end{itemize}
 
 \section{项目经历}
 
 \datedsubsection{\textbf{基于溢油预测模型的并行计算优化}}{2024年7月 -- 2024年8月}
-\role{2024海洋计算挑战赛决赛题目}{队长 - 参赛队：梦溪湖}
-该项目选自2024海洋计算挑战赛决赛题目。采用自主研发的二维溢油预测模型，在保证对欧拉方法求解轨迹方程的理解以及基于向量法判断油粒子是否会吸附到岸上的正确性的情况下，利用并行计算技术对程序进行加速。
 \begin{itemize}
-  \item 承担工作：通过在原有串行程序上进行MPI与OpenMP混合并行化，通过VTune工具识别性能瓶颈，采用负载均衡技术，充分利用2节点128核计算资源，使算法执行效率得到提升。访存优化方面使用Fortran/C重新排列数据访问顺序，利用内存局部性提高缓存命中率。在通信优化方面我利用了非阻塞通信、打包数据通信等方式进行优化。此外我们还在在算法层面使用快速排除未交叉线段和二分查找等优化技术，快速确定油粒子轨迹与海岸线的关系。
-  \item 项目成果：通过组委会提供算例的正确性检验，在初始算例上，相较于Baseline，取得了大约2482.14倍的加速比，在决赛队伍中排位第五，获得全国三等奖。
-\end{itemize}
-
-\datedsubsection{\textbf{基于AlphaFold3的蛋白质结构预测推理优化项目}}{2025年1月 -- 2025年2月}
-\role{ASC25世界大学生超级计算机竞赛}{团队成员}
-选自ASC25世界大学生超级计算机竞赛，针对Google DeepMind开发的AlphaFold3蛋白质结构预测模型进行推理性能优化。项目要求在保持预测精度的前提下，分别在GPU和CPU平台上最小化推理时间，处理12个不同长度的蛋白质序列样本，涉及复杂的扩散模型架构和JAX深度学习框架优化。
-\begin{itemize}
-  \item 承担工作：在NVIDIA A100 GPU和Intel Xeon CPU混合架构上完成AlphaFold3环境部署，通过cProfiler性能分析工具识别推理瓶颈，发现JAX框架的JIT编译占用大量时间。针对GPU优化实施禁用Triton GEMM编译、优化编译桶参数等策略；针对CPU平台运行时的致命性数值计算精度问题，修复负数开方导致的NaN错误。
-  \item 项目成果：成功实现AlphaFold3推理显著加速，在保证蛋白质结构预测confidence值与基准代码一致的情况下，GPU平台在不同序列长度下达到1.2-2.4倍的性能提升，CPU平台实现1.1-5.3倍的加速比，特别是在短序列上效果显著。
+  \item \textbf{项目简介}: 2024海洋计算挑战赛决赛题目，担任队长（参赛队：梦溪湖），围绕二维溢油预测模型开展并行加速与海岸线碰撞判定优化。
+  \item \textbf{承担工作}: 在原始串行程序上完成MPI+OpenMP混合并行化，结合VTune分析瓶颈，并通过负载均衡、访存重排、非阻塞与打包通信、快速排除未交叉线段和二分查找优化整体效率。
+  \item \textbf{项目成果}: 通过组委会正确性验证，相比Baseline实现2482.14倍加速，决赛排名第5，获全国三等奖。
 \end{itemize}
 
 \datedsubsection{\textbf{Tecorigin深度学习算子性能优化}}{2024年6月 -- 2024年9月}
-\role{第二届开放原子大赛Tecorigin算子开发任务挑战赛}{队长 - 参赛队：梦溪湖}
-选自第二届开放原子大赛Tecorigin算子开发任务挑战赛。针对tecoalConvolutionForward卷积前向算子进行系统性能优化，通过深度性能分析发现I/O瓶颈占总耗时93.1\%，采用多层次优化策略包括SPM内存管理、SIMD数据重排、异步流水线等技术，在保证算法正确性的前提下实现显著的性能提升。
 \begin{itemize}
-  \item 承担工作：性能瓶颈分析：通过Perf Data工具建立完整性能画像，精确识别I/O耗时占93.1\%的核心瓶颈。SPM内存优化：设计234KB SPM内存管理策略，实现双缓冲异步流水线。SIMD数据重排优化：针对矩阵乘法库输出格式与标准NHWC格式的不匹配问题，设计基于floatv16向量寄存器的高效重排算法，用纯硬件SIMD指令替代传统memcpy，实现16个元素并行处理，大大提高数据重排的效率。
-  \item 项目成果：实现3.7倍整体性能提升，总耗时从1820.78ms优化至489.18ms。其中输出缓冲区优化贡献600.69ms，SIMD数据重排优化贡献547.88ms(30\%+)，获得全国三等奖。
+  \item \textbf{项目简介}: 第二届开放原子大赛Tecorigin算子开发任务挑战赛题目，担任队长（参赛队：梦溪湖），针对tecoalConvolutionForward卷积前向算子做系统级性能优化。
+  \item \textbf{承担工作}: 使用Perf Data建立性能画像，识别I/O占比93.1\%的瓶颈；设计234KB SPM管理策略与双缓冲异步流水线，并基于floatv16向量寄存器实现SIMD数据重排。
+  \item \textbf{项目成果}: 总耗时由1820.78ms降至489.18ms，整体提升3.7倍，其中SIMD数据重排优化贡献30\%+，并解决矩阵乘法库输出与NHWC格式不匹配问题，获全国三等奖。
 \end{itemize}
 
 \datedsubsection{\textbf{基于新一代神威超算的PCG算法优化}}{2024年2月 -- 2024年4月}
-\role{第七届国产CPU并行应用挑战赛初赛题目}{个人项目}
-选自第七届国产CPU并行应用挑战赛初赛题目，针对数值仿真计算中的核心算法——预条件共轭梯度(PCG)求解器进行深度性能优化。项目基于新一代神威超级计算机的异构众核架构，通过系统性并行化改造、内存访问优化和算法融合等技术手段，在保证数值计算精度的前提下实现显著的性能提升。
 \begin{itemize}
-  \item 承担工作: 并行算法设计：基于神威64核从核架构完成PCG求解器的并行化重构，实现稀疏矩阵向量乘法(SpMV)、点积运算、预条件化等核心算法的高效并行版本，使用athread库进行线程管理和同步控制。内存访问优化：设计并实现DMA(直接内存访问)操作策略，优化LDM(局部数据存储器)使用效率，通过共享内存数组和智能数据分块解决内存容量限制，减少主从核间数据传输开销。
-  \item 项目成果: 通过40多轮系统性迭代优化，实现了39.6倍性能提升，总运行时间从1287秒优化至32.5秒。解决了LDM容量限制导致的数据分块难题，成功实现多个矩阵运算函数的融合，显著减少了主从核间的数据传输次数和函数调用开销。
+  \item \textbf{项目简介}: 第七届国产CPU并行应用挑战赛初赛题目，个人项目，面向神威异构众核架构优化PCG求解器。
+  \item \textbf{承担工作}: 基于神威64核从核架构重构PCG，使用athread实现SpMV、点积、预条件化等核心算子并行化，并通过DMA与LDM优化数据访问和分块策略。
+  \item \textbf{项目成果}: 经过40余轮迭代将运行时间从1287秒降至32.5秒，实现39.6倍加速。
 \end{itemize}
-
-\datedsubsection{\textbf{NAMD分子动力学仿真性能优化与科学计算}}{2024年5月 -- 2024年11月}
-\role{IndySCC@SC24国际超算学生集群竞赛}{团队成员}
-选自IndySCC24国际大学生超级计算机竞赛NAMD赛题。项目涵盖分子动力学仿真的完整工作流程，包括水分子系统物理性质验证、蛋白质折叠自由能研究、热力学积分计算、药物膜渗透模拟等多个科学计算场景，要求在高性能计算平台上实现最佳的计算性能与科学精度平衡。
-\begin{itemize}
-  \item 承担工作：基础物理性质验证：完成水分子系统热容计算和扩散系数测定，通过对比不同截断距离和时间步长参数验证仿真精度。复杂生物系统建模：使用增强采样技术(eABF)研究十丙氨酸蛋白折叠，通过副本交换热力学积分计算谷氨酸质子化自由能差，完成跨膜药物渗透自由能剖面计算。
-  \item 项目成果：通过参数调优和算法选择实现显著性能提升，验证了截断距离对计算精度和效率的权衡关系。成功完成多个数百纳秒级的长时间多节点的仿真任务，包括蛋白质折叠能量势面计算和跨膜自由能剖面分析，展现了在大规模科学计算和复杂生物系统建模方面的实践能力。
-\end{itemize}
-
-
 
 \section{技术能力}
 % increase linespacing [parsep=0.5ex]
 \begin{itemize}[parsep=0.5ex]
-  \item \textbf{编程语言}: C/C++, Fortran, Python
-  \item \textbf{并行计算}: CUDA, HIP, OpenMP, MPI
-  \item \textbf{硬件平台}: 熟悉CPU/GPU架构, Sunway（神威超算）
-  \item \textbf{算子优化}: 熟悉CUDA优化算子（矩阵乘、卷积等）
+  \item \textbf{编程语言}: C/C++、Fortran、Python
+  \item \textbf{并行计算}: CUDA、HIP、OpenMP、MPI、Sunway
+  \item \textbf{硬件平台}: 熟悉CPU/GPU架构、Sunway（神威超算）
+  \item \textbf{语言能力}: 英语六级(CET6: 478)
 \end{itemize}
 
 \section{竞赛获奖}
@@ -90,13 +69,6 @@
 \datedline{\textit{省级第二名}, 天翼云息壤杯高校AI大赛四川省赛}{2025年7月}
 \datedline{\textit{全国三等奖}, 第十五届蓝桥杯总决赛}{2024年6月}
 \datedline{\textit{一等奖学金、二等奖学金}, 西南石油大学优秀学生奖学金}{2024年}
-
-\section{专业技能}
-% increase linespacing [parsep=0.5ex]
-\begin{itemize}[parsep=0.5ex]
-  \item \textbf{语言能力}: 英语六级(CET6: 478)，英语四级(CET4: 521)，普通话二级甲等
-  \item \textbf{排版能力}: 熟练使用Latex
-\end{itemize}
 
 %% Reference
 %\newpage
