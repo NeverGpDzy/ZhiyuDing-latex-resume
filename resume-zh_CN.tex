@@ -31,7 +31,14 @@
 
 \section{项目经历}
 
-\datedsubsection{\textbf{Tecorigin深度学习算子性能优化}}{2024年6月 -- 2024年9月}
+\datedsubsection{\textbf{基于溢油预测模型的并行计算优化}}{2024年7月 -- 2024年8月}
+\begin{itemize}
+  \item \textbf{项目简介}: 2024海洋计算挑战赛决赛题目，担任队长，围绕二维溢油预测模型开展并行加速与海岸线碰撞判定优化。
+  \item \textbf{承担工作}: 在原始串行程序上完成MPI+OpenMP混合并行化，结合VTune分析瓶颈，通过负载均衡、访存重排、非阻塞通信、打包通信、线段快速排除和二分查找优化整体效率。
+  \item \textbf{项目成果}: 通过组委会正确性验证，相比Baseline实现2482.14倍加速，决赛排名第5，获全国三等奖。
+\end{itemize}
+
+\datedsubsection{\textbf{Tecorigin深度学习算子性能优化}}{2024年6月 -- 2024年12月}
 \begin{itemize}
   \item \textbf{项目简介}: 第二届开放原子大赛Tecorigin算子开发任务挑战赛题目，担任队长，针对Tecorigin卷积前向算子开展系统级性能优化。
   \item \textbf{承担工作}: 使用Perf Data建立性能画像，定位I/O占比93.1\%的核心瓶颈；设计234KB SPM管理策略与双缓冲异步流水线，并基于floatv16向量寄存器实现SIMD数据重排。
@@ -43,13 +50,6 @@
   \item \textbf{项目简介}: 第七届国产CPU并行应用挑战赛初赛题目，个人项目，面向神威异构众核架构优化预条件共轭梯度(PCG)求解器。
   \item \textbf{承担工作}: 基于神威64核从核架构重构PCG流程，使用athread实现SpMV、点积、预条件化等核心算子并行化，并通过DMA与LDM优化数据访问和分块策略。
   \item \textbf{项目成果}: 经过40余轮迭代，将运行时间从1287秒降至32.5秒，实现39.6倍加速。
-\end{itemize}
-
-\datedsubsection{\textbf{基于溢油预测模型的并行计算优化}}{2024年7月 -- 2024年8月}
-\begin{itemize}
-  \item \textbf{项目简介}: 2024海洋计算挑战赛决赛题目，担任队长，围绕二维溢油预测模型开展并行加速与海岸线碰撞判定优化。
-  \item \textbf{承担工作}: 在原始串行程序上完成MPI+OpenMP混合并行化，结合VTune分析瓶颈，通过负载均衡、访存重排、非阻塞通信、打包通信、线段快速排除和二分查找优化整体效率。
-  \item \textbf{项目成果}: 通过组委会正确性验证，相比Baseline实现2482.14倍加速，决赛排名第5，获全国三等奖。
 \end{itemize}
 
 \section{技术能力}
