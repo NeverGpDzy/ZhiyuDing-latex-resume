@@ -74,12 +74,20 @@ Selected from the 7th Domestic CPU Parallel Application Challenge preliminary co
   \item Passed correctness verification and achieved an average 30x speedup
 \end{itemize}
 
+\section{Research Experience}
+\subsection{\textbf{Image Processing and Parallel Computing Laboratory (IPPC Lab)}, Southwest Petroleum University}
+\textit{May 2024 -- September 2025}
+\role{3D Ultrasound Speckle Tracking Algorithm Optimization}{Sichuan Student Innovation Program; Advisor: Prof. Bo Peng}
+\begin{itemize}
+  \item Rebuilt the serial MATLAB workflow as a CUDA C++ parallel pipeline to address high-volume cross-correlation costs in 3D ultrasound speckle tracking
+  \item Decomposed the algorithm into RF integral volume construction, cross-correlation integral volume generation, and 3D subpixel displacement estimation, with dedicated GPU kernels for each stage
+  \item Optimized memory access for large-scale 3D prefix-sum computation and introduced warp-level cooperation, accelerating the core kernel by 11.11x and reducing end-to-end runtime from 16.32s to 0.22s, about 73x faster
+\end{itemize}
+
 \section{Technical Skills}
 \begin{itemize}[parsep=0.5ex]
-  \item Programming Languages: C/C++, Fortran, Python
-  \item Parallel Computing: CUDA, HIP, OpenMP, MPI
-  \item Hardware Platforms: CPU/GPU Architecture, Sunway Supercomputer
-  \item Operator Optimization: CUDA optimization operators (matrix multiplication, convolution, etc.)
+  \item Programming and Parallel Computing: C/C++, Fortran, Python; CUDA, HIP, OpenMP, MPI, Sunway
+  \item Performance Optimization: CPU/GPU architecture, CUDA operators, memory access optimization, communication optimization
 \end{itemize}
 
 \section{Awards and Honors}
