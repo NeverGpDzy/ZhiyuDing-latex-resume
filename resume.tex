@@ -19,7 +19,7 @@
 \textit{Undergraduate Student} in Data Science and Big Data Technology, School of Computer and Software Engineering
 \begin{itemize}
   \item \textbf{Academic Performance}: GPA: 4.13/5.0, Major Ranking: 1/66
-  \item \textbf{Languages}: English CET-6 (478)
+  \item \textbf{Languages}: English CET-6 (478), CET-4 (521)
   \item \textbf{Core Courses}: Advanced Mathematics II(95), Linear Algebra(91), Probability and Statistics(93), Principles of Statistics(93), Data Structures and Algorithms(90)
 \end{itemize}
 
@@ -28,18 +28,18 @@
 \subsection{\textbf{Parallel Computing Optimization for Oil Spill Prediction Model}}
 \textit{May 2024 -- August 2024}
 \role{2024 Marine Computing Challenge Finals}{Team Leader}
-Selected for the 2024 Marine Computing Challenge finals; led hybrid parallelization and coastline collision detection optimization for a 2D oil spill prediction model.
+Selected for the 2024 Marine Computing Challenge finals; led hybrid parallelization and coastline collision detection optimization for a 2D oil spill prediction model in a dual-node 128-core environment.
 \begin{itemize}
-  \item Completed MPI+OpenMP hybrid parallelization on the original serial program, analyzing bottlenecks with VTune and optimizing via load balancing, memory access reordering, non-blocking communication, packed communication, segment rapid elimination, and binary search
+  \item Completed MPI+OpenMP hybrid parallelization on the original serial program, analyzing bottlenecks with VTune and optimizing via load balancing, non-blocking communication, packed communication, disjoint segment rapid elimination, and binary search
   \item Passed the organizer's correctness verification, achieved a 2482.14x speedup over the baseline, ranked 5th in the finals, and won the national third prize
 \end{itemize}
 
 \subsection{\textbf{Tecorigin Deep Learning Operator Performance Optimization}}
 \textit{June 2024 -- December 2024}
 \role{2nd OpenAtom Competition -- Tecorigin Operator Development Challenge}{Team Leader}
-Selected for the 2nd OpenAtom Competition Tecorigin Operator Development Challenge; conducted systematic performance optimization of Tecorigin convolution forward operators.
+Selected for the 2nd OpenAtom Competition Tecorigin Operator Development Challenge; conducted performance optimization of Tecorigin convolution forward operators on TaiChu accelerator.
 \begin{itemize}
-  \item Built performance profiles using Perf Data, identifying I/O as the core bottleneck at 93.1\%; designed a 234KB SPM management strategy and double-buffering asynchronous pipeline, and implemented SIMD data reordering based on floatv16 vector registers
+  \item Built performance profiles using Perf Data, identifying I/O as the core bottleneck at 93.1\%; designed a 234KB SPM management strategy and double-buffering asynchronous pipeline optimizing memory access, and implemented SIMD data reordering based on floatv16 vector registers, significantly improving write-back bandwidth
   \item Reduced total execution time from 1820.78ms to 489.18ms, achieving a 3.7x overall speedup; resolved the mismatch between matrix multiplication library output and NHWC format, winning the national third prize
 \end{itemize}
 
@@ -48,24 +48,24 @@ Selected for the 2nd OpenAtom Competition Tecorigin Operator Development Challen
 \role{7th Domestic CPU Parallel Application Challenge}{Individual Project}
 Selected for the 7th Domestic CPU Parallel Application Challenge preliminary round; optimized the Preconditioned Conjugate Gradient (PCG) solver for the Sunway heterogeneous many-core architecture.
 \begin{itemize}
-  \item Restructured the PCG workflow based on the Sunway 64-core slave-core architecture, parallelizing core operators such as SpMV, dot product, and preconditioning using athread, and optimizing data access and blocking strategies via DMA and LDM
+  \item Restructured the PCG workflow based on the Sunway 64-core slave-core architecture, parallelizing core operators such as SpMV, dot product, and preconditioning using athread, and optimizing data access and blocking strategies via DMA and on-chip LDM
   \item Through over 40 iterations, reduced runtime from 1287 seconds to 32.5 seconds, achieving a 39.6x speedup
 \end{itemize}
 
 \section{Research Experience}
 \subsection{\textbf{Image Processing and Parallel Computing Laboratory (IPPC Lab)}, Southwest Petroleum University}
 \textit{May 2024 -- September 2025}
-\role{3D Ultrasound Speckle Tracking Algorithm Optimization}{Sichuan Student Innovation Program; Advisor: Prof. Bo Peng}
+\role{3D Ultrasound Elastography CUDA Acceleration}{Sichuan Student Innovation Program; Advisor: Prof. Bo Peng}
 \begin{itemize}
-  \item Rebuilt the serial MATLAB workflow as a CUDA C++ parallel pipeline for high-volume cross-correlation in 3D ultrasound speckle tracking, decomposing it into RF integral volume construction, cross-correlation integral volume generation, and 3D subpixel displacement estimation GPU stages
+  \item Rebuilt the serial MATLAB workflow as a CUDA C++ parallel pipeline for high-volume cross-correlation in 3D ultrasound elastography, decomposing it into RF integral volume construction, cross-correlation integral volume generation, and 3D subpixel displacement estimation GPU stages; successfully ported the algorithm to Sugon DCU accelerator
   \item Optimized memory access for large-scale 3D prefix-sum computation and introduced warp-level cooperation, accelerating the core kernel by 11.11x and reducing end-to-end runtime from 16.32s to 0.22s, about 73x faster
 \end{itemize}
 
-\subsection{\textbf{CUDA Acceleration for Large-Scale Image Pretraining Data Generation}}
+\subsection{\textbf{CUDA Parallel Optimization for Quadtree Adaptive Image Tiling Algorithm}}
 \textit{October 2025 -- March 2026}
 \begin{itemize}
-  \item Rewrote large-image tiling, noise injection, and training sequence generation for Hierarchical Denoising Encoder (HDE) pretraining in CUDA C++, packaging the workflow as a Python-callable module
-  \item Decomposed the pipeline into integral image computation, quadtree partitioning, hierarchical noise generation, and patch synthesis, processing 8192$\times$8192 images on A100 in 3.16s with 13.0x speedup over CPU, 2.35x over CuPy, and 69.1x faster noise generation
+  \item Addressed computational bottlenecks in large-image adaptive tiling for Visual Transformer pretraining by fully parallelizing the quadtree adaptive tiling pipeline in CUDA C++, including integral image construction, quadtree iterative merging, hierarchical noise injection, and patch synthesis; employed Top-K selection to process top-k candidates per iteration, avoiding full sorting
+  \item Decomposed the pipeline into integral image computation, quadtree partitioning, hierarchical noise generation, and patch synthesis, processing 8192-pixel edge-length images on A100 in 3.16s with 13.0x speedup over serial CPU version, and 69.1x faster noise generation
 \end{itemize}
 
 \section{Awards and Honors}
